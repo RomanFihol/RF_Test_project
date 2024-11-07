@@ -13,7 +13,7 @@ public class GoogleSearch {
     private final SelenideElement searchFiled = $("#APjFqb");
     private final SelenideElement rejectCookies = $("#W0wltc");
     private final SelenideElement cookiesWindow = $("#CXQnmb");
-    private final SelenideElement youTubeButton = $x("//div[@class='wM6W7d']/span[contains(text(), 'YouTube')]");
+  //  private final SelenideElement youTubeButton = $x("//div[@class='wM6W7d']/span[contains(text(), 'YouTube')]");
 
     @Step("Reject cookies if visible")
     public GoogleSearch rejectAllCookies() {
@@ -21,7 +21,7 @@ public class GoogleSearch {
             rejectCookies.shouldBe(Condition.interactable).click();
             return this;
         }
-        return null;
+        return page();
     }
 
     @Step("Put the value into the search field")

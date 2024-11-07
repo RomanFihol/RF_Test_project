@@ -10,7 +10,7 @@ public class SearchResultsPage {
 
     private final ElementsCollection searchResultsList = $$("h3.LC20lb.MBeuO.DKV0Md");
     @Step("Click on the first element in the list of search results")
-    public void clickTheFirstElement() {
+    public void clickTheFirstElement() {   // This method clicks on the first element from the search list
         searchResultsList.first().click();
     }
 }
