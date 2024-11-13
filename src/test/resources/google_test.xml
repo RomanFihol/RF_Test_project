@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Roman test task">
+    <test name="Google Search testing">
+        <parameter name="baseUrl" value="https://www.google.com/"/>
+        <classes>
+            <class name="lbx.org.qa.test.googlePageTest.GoogleSearchTest"/>
+        </classes>
+    </test>
+</suite>

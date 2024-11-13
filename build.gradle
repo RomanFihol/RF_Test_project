@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'io.qameta.allure' version '2.11.2' // Актуальная версия плагина
+    id 'io.qameta.allure' version '2.12.0'
 }
 
 group = 'org.example'
@@ -11,29 +11,30 @@ repositories {
 }
 
 allure {
-    version = '2.18.0'  // Версия Allure CLI
+    version = '2.30.0'
 }
 
-//tasks.register('cleanAllureResults', Delete) {
-//    delete fileTree(dir: 'build/allure-results', include: '**/*')
-//}
-//test {
-//    dependsOn cleanAllureResults
-//}
-
 dependencies {
-    // Selenide
-    implementation 'com.codeborne:selenide:6.17.0'
-    // Allure Selenide
     implementation 'io.qameta.allure:allure-selenide:2.18.0'
-    // Allure TestNG (если используете TestNG)
-    implementation 'io.qameta.allure:allure-testng:2.17.3'
-    // Подключение Selenide для работы с браузером
+    implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.29.0'
     implementation 'com.codeborne:selenide:7.5.1'
-    testImplementation group: 'org.testng', name: 'testng', version: '7.10.2'
     testImplementation 'org.testng:testng:7.10.2'
 }
 
-test {
+tasks.register('cleanAllureResults', Delete) {
+}
+
+
+tasks.test {
+    dependsOn cleanAllureResults
     useTestNG()
+    systemProperty "selenide.browser", "chrome"
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+tasks.register('serveAllureReport') {
+    dependsOn 'test'
+    finalizedBy 'allureServe'
 }
