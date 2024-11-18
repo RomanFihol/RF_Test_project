@@ -42,6 +42,7 @@ bin/
 .DS_Store
 java_pid*.hprof
 .idea
-allure-results
+build/allure-results
 gradle/wrapper
 lib
+allure-results

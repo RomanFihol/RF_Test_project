@@ -21,6 +21,7 @@ public class DateUtils {
         try {
             return LocalDate.parse(birthDate, formatter);
         } catch (DateTimeParseException e) {
+            addAllureErrorMessage("The date format you entered is incorrect");
             throw new InvalidDateFormatException("Invalid date format. Please use dd-MM-yyyy.", e);
         }
     }

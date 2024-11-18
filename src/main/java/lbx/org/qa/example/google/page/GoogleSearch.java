@@ -18,12 +18,12 @@ public class GoogleSearch {
 
     @Step
     public void openBaseUrl() {
-        open(Configuration.baseUrl);
+        open(System.getProperty("baseUrl"));
         new GoogleSearch();
     }
 
     @Step("Reject cookies if visible")
-    public void rejectAllCookies() {
+    public void rejectGoogleCookies() {
         if (cookiesWindow.isDisplayed()) {
             rejectCookies.shouldBe(Condition.interactable).click();
         }

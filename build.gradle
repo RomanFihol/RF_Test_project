@@ -19,16 +19,17 @@ dependencies {
     implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.29.0'
     implementation 'com.codeborne:selenide:7.5.1'
     testImplementation 'org.testng:testng:7.10.2'
-}
+    implementation 'commons-io:commons-io:2.11.0'
 
-tasks.register('cleanAllureResults', Delete) {
 }
-
 
 tasks.test {
-    dependsOn cleanAllureResults
-    useTestNG()
-    systemProperty "selenide.browser", "chrome"
+    useTestNG() {
+        suiteName = "Roman Fihol test task"
+        testName = "Googl search test"
+    }
+    systemProperty 'selenide.browser', project.properties['browser']
+    systemProperty 'baseUrl', project.properties['baseUrl']
     testLogging {
         events "passed", "skipped", "failed"
     }
@@ -38,3 +39,4 @@ tasks.register('serveAllureReport') {
     dependsOn 'test'
     finalizedBy 'allureServe'
 }
+
