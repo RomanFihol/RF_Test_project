@@ -6,5 +6,7 @@ public class UnderAgeException extends RuntimeException {
         super(message);
     }
 
-
+    public UnderAgeException(String message, Throwable e) {
+        super(message, e);
+    }
 }

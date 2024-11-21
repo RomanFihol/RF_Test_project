@@ -2,7 +2,7 @@
 <suite name="Roman test task">
     <test name="Google Search testing">
         <classes>
-            <class name="lbx.org.qa.test.googlePageTest.GoogleSearchTest"/>
+            <class name="lbx.org.qa.example.googlePageTest.GoogleSearchTest"/>
         </classes>
     </test>
 </suite>
