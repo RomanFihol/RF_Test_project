@@ -25,8 +25,7 @@ public class GoogleSearchTest extends BaseTest {
                 {DateUtils.getFutureDate()},  // future date
                 {DateUtils.getAgeMoreThan18()},  // one day more than 18
                 {DateUtils.getAgeEqual18()},  // 18 ages
-                {DateUtils.getAgeLessThan18()}  // one day less than 18 
-            // new line
+                {DateUtils.getAgeLessThan18()}  // one day less than 18
         };
     }
 
